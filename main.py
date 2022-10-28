@@ -51,7 +51,7 @@ class Line:
 					a = array[0 + j]
 					b = array[1 + j]
 					length += self.measure(a, b)
-			text = pygame.freetype.Font("BLKCHCRY.TTF", 24)
+			text = pygame.freetype.Font("assets/BLKCHCRY.TTF", 24)
 			text.render_to(display, (10, 50), "Distance       : " + str(round(self.pxtocm(length))) + " cm" , (255, 0, 0))
 			# print("Total distance:", round(length))
 			# print("------------------------------")
@@ -64,7 +64,7 @@ class Line:
 			y = array[-1]
 			pygame.draw.line(display, (0, 255, 0), x, y, 2)
 			length = self.measure(x, y)
-			text = pygame.freetype.Font("BLKCHCRY.TTF", 24)
+			text = pygame.freetype.Font("assets/BLKCHCRY.TTF", 24)
 			text.render_to(display, (10, 15), "Displacement: " + str(round(self.pxtocm(length))) + " cm" , (0, 255, 0))
 			# print("displacement  :", round(length))
 			# print("------------------------------")
@@ -87,11 +87,11 @@ class Line:
 		return cm
 
 def reset(display, event):
-	text = pygame.freetype.Font("BLKCHCRY.TTF", 24)
+	text = pygame.freetype.Font("assets/BLKCHCRY.TTF", 24)
 	text.render_to(display, (1100, 15), "Reset", (255, 255, 255))
 	if pygame.mouse.get_pos()[0] >= 1050 and pygame.mouse.get_pos()[1] >= 15:
 		if pygame.mouse.get_pos()[0] <= 1150 and pygame.mouse.get_pos()[1] <= 40:
-			text = pygame.freetype.Font("BLKCHCRY.TTF", 24)
+			text = pygame.freetype.Font("assets/BLKCHCRY.TTF", 24)
 			text.render_to(display, (1100, 15), "Reset", (255, 0, 0))
 	if event.type == pygame.MOUSEBUTTONDOWN:
 		if event.button == 1:
@@ -102,7 +102,7 @@ def reset(display, event):
 
 def start(display):
 	if len(Node.nodesRef) == 0:
-		text = pygame.freetype.Font("BLKCHCRY.TTF", 50)
+		text = pygame.freetype.Font("assets/BLKCHCRY.TTF", 50)
 		text.render_to(display, (450, 350), "Click anywhere!", (255, 255, 255))
 
 def main():
@@ -111,7 +111,7 @@ def main():
 	pygame.init()
 	display = pygame.display.set_mode((screenWidth, screenHeight))
 	pygame.display.set_caption("Distance Vs Displacement by @MushrafAltaf")
-	pygame.display.set_icon(pygame.image.load("icon.png"))
+	pygame.display.set_icon(pygame.image.load("assets/icon.png"))
 	node = Node()
 	line = Line()
 
